@@ -8,13 +8,13 @@ public class Controlador {
     private Menus menus;
     private ControladorEstudiante conEst;
     private ControladorMateria conMat;
-    private Mensajes mensajes;
+    private Mensajes mensajes;// interfaz para salida de mensajes
     
     public Controlador() {
         menus = new Menus();
         conEst = new ControladorEstudiante();
         conMat = new ControladorMateria();
-        mensajes = new SalidaConsola();
+        mensajes = new SalidaConsola();// puede cambiarse SalidaConsola por otra clase de impresión tipo Mensajes
     }
 
     public void iniciar() {

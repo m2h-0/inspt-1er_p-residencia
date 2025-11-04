@@ -1,58 +1,54 @@
 package residencia.backend.Controllers;
 
 import residencia.backend.Models.Estudiante;
-import java.util.Scanner;
+import residencia.frontend.EntradaConsola;
+import residencia.frontend.Interfaces.Entrada;
 import residencia.frontend.Interfaces.Mensajes;
 import residencia.frontend.SalidaConsola;
 
 public class ControladorEstudiante {
 
     public final EstudianteDAO dao;
-    private int op;
-    private final Scanner sc = new Scanner(System.in);
-    private Mensajes mensajes;
+    private final Entrada entrada;
+    private final Mensajes mensajes;
 
     public ControladorEstudiante() {
         dao = new EstudianteDAO();
+        entrada = new EntradaConsola();
         mensajes = new SalidaConsola();
     }
     
     public void listar() {
-        System.out.println("LISTA DE ESTUDIANTES...");
-        System.out.println("DNI:\t\tNombre:\t\tEdad:");
+        mensajes.imprimir("LISTA DE ESTUDIANTES...");
+        mensajes.imprimir("DNI:\t\tNombre:\t\tEdad:");
         for (Estudiante e : dao.leerEstudiantes()) {
-            System.out.println(e.getDni() + "\t\t" + e.getNombre() + "\t\t" + e.getEdad());
+            mensajes.imprimir(e.getDni() + "\t\t" + e.getNombre() + "\t\t" + e.getEdad());
         }
     }
 
     public void agregar() {
-        System.out.print("Ingrese dni: ");
-        int dni = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Ingrese nombre: ");
-        String nombre = sc.nextLine();
-        System.out.print("Ingrese edad: ");
-        int edad = sc.nextInt();
-        sc.nextLine();
+        mensajes.imprimir("Ingrese dni: ");
+        int dni = entrada.entero();
+        mensajes.imprimir("Ingrese nombre: ");
+        String nombre = entrada.cadena();
+        mensajes.imprimir("Ingrese edad: ");
+        int edad = entrada.entero();
         dao.crearEstudiante(new Estudiante(dni, nombre, edad));
     }
 
     public void actualizar() {
-        System.out.print("Ingrese dni: ");
-        int dni = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Ingrese nuevo nombre: ");
-        String nombre = sc.nextLine();
-        System.out.print("Ingrese edad: ");
-        int edad = sc.nextInt();
-        sc.nextLine();
+        mensajes.imprimir("Ingrese dni: ");
+        int dni = entrada.entero();
+        mensajes.imprimir("Ingrese nuevo nombre: ");
+        String nombre = entrada.cadena();
+        mensajes.imprimir("Ingrese edad: ");
+        int edad = entrada.entero();
         dao.actualizarEstudiante(dni, new Estudiante(dni, nombre, edad));
     }
 
     public void eliminar() {
-        System.out.print("Ingrese dni: ");
-        int dni = sc.nextInt();
-        sc.nextLine();
+        mensajes.imprimir("Ingrese dni: ");
+        int dni = entrada.entero();
         dao.eliminarEstudiante(dni);
     }
 }
