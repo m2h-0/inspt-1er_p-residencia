@@ -1,5 +1,6 @@
 package residencia.Connections;
 
+import residencia.backend.Interfaces.Conector;
 import java.io.File;
 import java.io.IOException;
 

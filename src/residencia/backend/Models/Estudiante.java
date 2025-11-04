@@ -10,4 +10,9 @@ public class Estudiante extends Persona {
         String[] partes = linea.split(",");
         return new Estudiante(Integer.parseInt(partes[0]), partes[1], Integer.parseInt(partes[2]));
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -11,7 +11,7 @@ public class ControladorMateria {
 
     public final MateriaDAO dao;
     private final Entrada entrada;
-    private Mensajes mensajes;
+    private final Mensajes mensajes;
 
     public ControladorMateria() {
         dao = new MateriaDAO();
