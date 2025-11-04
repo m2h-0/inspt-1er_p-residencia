@@ -1,0 +1,43 @@
+# Compiled class files
+*.class
+
+# Ant build output directories
+/build/
+/dist/
+/target/
+
+# Package files
+#*.jar
+*.war
+*.ear
+*.zip
+
+# Log files
+*.log
+
+# IDE specific files
+# Eclipse
+.classpath
+.project
+.settings/
+.externalToolBuilders/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# NetBeans
+nbproject/
+build/
+dist/
+
+# Other common temporary files
+*~
+*.bak
+*.swp
+*.tmp
+
+todo_list.txt
