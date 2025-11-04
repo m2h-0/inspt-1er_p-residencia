@@ -1,41 +1,22 @@
-package residencia.frontend;
+package residencia.backend.Controllers;
 
-import residencia.backend.Controllers.EstudianteDAO;
 import residencia.backend.Models.Estudiante;
 import java.util.Scanner;
+import residencia.frontend.Interfaces.Mensajes;
+import residencia.frontend.SalidaConsola;
 
-public class MenuEstudiante implements MenuConector {
+public class ControladorEstudiante {
 
     public final EstudianteDAO dao;
     private int op;
     private final Scanner sc = new Scanner(System.in);
+    private Mensajes mensajes;
 
-    public MenuEstudiante() {
+    public ControladorEstudiante() {
         dao = new EstudianteDAO();
+        mensajes = new SalidaConsola();
     }
     
-    @Override
-    public void iniciarMenu() {
-        do {
-            System.out.println("******* MENÚ *******");
-            System.out.println(" 1. Lista estudiantes.");
-            System.out.println(" 2. Agregar estudiante.");
-            System.out.println(" 3. Actualizar estudiante.");
-            System.out.println(" 4. Eliminar estudiante.");
-            System.out.println(" 0. SALIR.");
-            System.out.print(" **** OPCIÓN: ");
-            op = sc.nextInt();
-            sc.nextLine();
-
-            switch (op) {
-                case 1 -> listar();
-                case 2 -> agregar();
-                case 3 -> actualizar();
-                case 4 -> eliminar();
-            }
-        } while (op != 0);
-    }
-
     public void listar() {
         System.out.println("LISTA DE ESTUDIANTES...");
         System.out.println("DNI:\t\tNombre:\t\tEdad:");

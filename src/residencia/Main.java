@@ -1,11 +1,11 @@
 package residencia;
 
-import residencia.frontend.Menu;
+import residencia.backend.Controllers.Controlador;
 
 public class Main {
 
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.iniciarMenu();
+        Controlador con = new Controlador();
+        con.iniciar();
     }
 }

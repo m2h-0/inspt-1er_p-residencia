@@ -1,42 +1,23 @@
-package residencia.frontend;
+package residencia.backend.Controllers;
 
-import residencia.backend.Controllers.MateriaDAO;
 import residencia.backend.Models.Materia;
 import java.util.Scanner;
 import residencia.backend.Interfaces.Almacenable;
+import residencia.frontend.Interfaces.Mensajes;
+import residencia.frontend.SalidaConsola;
 
-public class MenuMateria implements MenuConector {
+public class ControladorMateria {
 
     public final MateriaDAO dao;
     private int op;
     private final Scanner sc = new Scanner(System.in);
+    private Mensajes mensajes;
 
-    public MenuMateria() {
+    public ControladorMateria() {
         dao = new MateriaDAO();
+        mensajes = new SalidaConsola();
     }
     
-    @Override
-    public void iniciarMenu() {
-        do {
-            System.out.println("******* MENÚ *******");
-            System.out.println(" 1. Lista materias.");
-            System.out.println(" 2. Agregar materia.");
-            System.out.println(" 3. Actualizar materia.");
-            System.out.println(" 4. Eliminar materia.");
-            System.out.println(" 0. SALIR.");
-            System.out.print(" **** OPCIÓN: ");
-            op = sc.nextInt();
-            sc.nextLine();
-
-            switch (op) {
-                case 1 -> listar();
-                case 2 -> agregar();
-                case 3 -> actualizar();
-                case 4 -> eliminar();
-            }
-        } while (op != 0);
-    }
-
     public void listar() {
         System.out.println("LISTA DE MATERIAS...");
         System.out.println("Código:\t\tNombre:");
