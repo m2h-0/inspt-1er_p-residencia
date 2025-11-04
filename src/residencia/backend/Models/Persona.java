@@ -7,23 +7,19 @@ public class Persona implements Almacenable {
     private int cod;
     private final int dni;
     private final String nombre;
-    private final int edad;
+    protected final String apellido;
 
-    public Persona(int cod, int dni, String nombre, int edad) {
+    public Persona(int cod, int dni, String nombre, String apellido) {
+        this.cod = cod;
         this.dni = dni;
         this.nombre = nombre;
-        this.edad = edad;
+        this.apellido = apellido;
     }
 
-    public Persona(int dni, String nombre, int edad) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-
+    public int getCod() { return cod; }
     public int getDni() { return dni; }
     public String getNombre() { return nombre; }
-    public int getEdad() { return edad; }
+    public String getApellido() { return apellido; }
 
     public static Persona fromString(String linea) {
         String[] partes = linea.split(",");
@@ -31,17 +27,12 @@ public class Persona implements Almacenable {
                 Integer.parseInt(partes[0]), 
                 Integer.parseInt(partes[1]), 
                 partes[2], 
-                Integer.parseInt(partes[3])
+                partes[3]
         );
     }
 
     @Override
-    public int getCod() {
-        return cod;
-    }
- 
-    @Override
     public String toString() {
-        return dni + "," + nombre + "," + edad;
+        return cod + "," + dni + "," + nombre + "," + apellido;
     }
 }

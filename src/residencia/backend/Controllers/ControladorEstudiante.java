@@ -22,33 +22,36 @@ public class ControladorEstudiante {
         mensajes.imprimir("LISTA DE ESTUDIANTES...");
         mensajes.imprimir("DNI:\t\tNombre:\t\tEdad:");
         for (Estudiante e : dao.leerEstudiantes()) {
-            mensajes.imprimir(e.getDni() + "\t\t" + e.getNombre() + "\t\t" + e.getEdad());
+            mensajes.imprimir(e.getDni() + "\t\t" + e.getNombre() + "\t\t" + e.getApellido());
         }
     }
 
     public void agregar() {
+        int cod = dao.ultimo().getCod();
         mensajes.imprimir("Ingrese dni: ");
         int dni = entrada.entero();
         mensajes.imprimir("Ingrese nombre: ");
         String nombre = entrada.cadena();
         mensajes.imprimir("Ingrese edad: ");
-        int edad = entrada.entero();
-        dao.crearEstudiante(new Estudiante(dni, nombre, edad));
+        String apellido = entrada.cadena();
+        dao.crearEstudiante(new Estudiante(cod, dni, nombre, apellido));
     }
 
     public void actualizar() {
+        mensajes.imprimir("Ingrese el código del estudiante a actualizar: ");
+        int cod = entrada.entero();
         mensajes.imprimir("Ingrese dni: ");
         int dni = entrada.entero();
         mensajes.imprimir("Ingrese nuevo nombre: ");
         String nombre = entrada.cadena();
-        mensajes.imprimir("Ingrese edad: ");
-        int edad = entrada.entero();
-        dao.actualizarEstudiante(dni, new Estudiante(dni, nombre, edad));
+        mensajes.imprimir("Ingrese apellido: ");
+        String apellido = entrada.cadena();
+        dao.actualizarEstudiante(dni, new Estudiante(cod, dni, nombre, apellido));
     }
 
     public void eliminar() {
-        mensajes.imprimir("Ingrese dni: ");
-        int dni = entrada.entero();
-        dao.eliminarEstudiante(dni);
+        mensajes.imprimir("Ingrese el código del estudiante a eliminar: ");
+        int cod = entrada.entero();
+        dao.eliminarEstudiante(cod);
     }
 }
