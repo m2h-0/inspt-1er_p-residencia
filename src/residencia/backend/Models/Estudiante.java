@@ -1,4 +1,4 @@
-package instituto.backend.Models;
+package residencia.backend.Models;
 
 public class Estudiante extends Persona {
 

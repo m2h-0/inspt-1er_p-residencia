@@ -1,4 +1,4 @@
-package instituto.frontend;
+package residencia.frontend;
 
 import java.util.Scanner;
 

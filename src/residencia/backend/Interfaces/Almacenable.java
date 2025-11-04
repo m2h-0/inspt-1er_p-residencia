@@ -1,4 +1,4 @@
-package instituto.backend.Interfaces;
+package residencia.backend.Interfaces;
 
 public interface Almacenable {
     public int getCod();

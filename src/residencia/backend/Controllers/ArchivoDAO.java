@@ -1,8 +1,8 @@
-package instituto.backend.Controllers;
+package residencia.backend.Controllers;
 
-import instituto.Connections.BDArchivos;
-import instituto.backend.Interfaces.Almacenable;
-import instituto.backend.Interfaces.CrudDAO;
+import residencia.Connections.BDArchivos;
+import residencia.backend.Interfaces.Almacenable;
+import residencia.backend.Interfaces.CrudDAO;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

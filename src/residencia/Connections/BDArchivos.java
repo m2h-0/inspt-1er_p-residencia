@@ -1,4 +1,4 @@
-package instituto.Connections;
+package residencia.Connections;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package instituto.backend.Interfaces;
+package residencia.backend.Interfaces;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package instituto.backend.Controllers;
+package residencia.backend.Controllers;
 
-import instituto.Connections.BDArchivos;
-import instituto.backend.Models.Estudiante;
+import residencia.Connections.BDArchivos;
+import residencia.backend.Models.Estudiante;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;

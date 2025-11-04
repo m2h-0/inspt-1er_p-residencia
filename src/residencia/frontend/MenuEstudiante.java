@@ -1,7 +1,7 @@
-package instituto.frontend;
+package residencia.frontend;
 
-import instituto.backend.Controllers.EstudianteDAO;
-import instituto.backend.Models.Estudiante;
+import residencia.backend.Controllers.EstudianteDAO;
+import residencia.backend.Models.Estudiante;
 import java.util.Scanner;
 
 public class MenuEstudiante implements MenuConector {

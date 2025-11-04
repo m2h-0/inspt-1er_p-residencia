@@ -1,6 +1,6 @@
-package instituto;
+package residencia;
 
-import instituto.frontend.Menu;
+import residencia.frontend.Menu;
 
 public class Main {
 

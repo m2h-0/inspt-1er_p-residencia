@@ -1,6 +1,6 @@
-package instituto.backend.Models;
+package residencia.backend.Models;
 
-import instituto.backend.Interfaces.Almacenable;
+import residencia.backend.Interfaces.Almacenable;
 
 public class Persona implements Almacenable {
 
