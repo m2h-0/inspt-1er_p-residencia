@@ -31,8 +31,6 @@ public class ControladorMateria {
         String nombre;
         mensajes.imprimir("Ingrese código: ");
         int cod = entrada.entero();
-        entrada.cadena();
-        
         mensajes.imprimir("Ingrese nombre: ");
         nombre = entrada.cadena();
         dao.crearMateria(new Materia(cod, nombre));
