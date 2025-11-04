@@ -20,30 +20,30 @@ public class MateriaDAO extends ArchivoDAO {
         bda = getBda();
     }
 
-//    public void crearMateria(Materia m) {
-//        if (!existe(m.getCod())){
-//            try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc(), true))) {
-//                bw.write(m.toString());
-//                bw.newLine();
-//            } catch (IOException ex) {
-//                System.out.println("ERROR: " + ex.getMessage());
-//            }finally{
-//                System.out.println("Estudiante agregado...");
-//            }
-//        }else
-//            System.out.println("ERROR: Estudiante ya registrado");
-//    }
-//
-//    public boolean existe(int cod) {
-//        boolean encontrado = false;
-//        List<Materia> lista = leerMaterias();
-//        for (Materia m : lista) {
-//            if (m.getCod() == cod) {
-//                encontrado = true;
-//            }
-//        }
-//        return encontrado;
-//    }
+    public void crearMateria(Materia m) {
+        if (!existe(m.getCod())){
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc(), true))) {
+                bw.write(m.toString());
+                bw.newLine();
+            } catch (IOException ex) {
+                System.out.println("ERROR: " + ex.getMessage());
+            }finally{
+                System.out.println("Estudiante agregado...");
+            }
+        }else
+            System.out.println("ERROR: Estudiante ya registrado");
+    }
+
+    public boolean existe(int cod) {
+        boolean encontrado = false;
+        List<Almacenable> lista = listar();
+        for (Almacenable m : lista) {
+            if (m.getCod() == cod) {
+                encontrado = true;
+            }
+        }
+        return encontrado;
+    }
 
     public List<Almacenable> listar() {
         List<Almacenable> lista = new ArrayList<>();
@@ -58,35 +58,35 @@ public class MateriaDAO extends ArchivoDAO {
         return lista;
     }
 
-//    public void actualizarMateria(int cod, Materia nuevo) {
-//        List<Materia> lista = leerMaterias();
-//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc()))) {
-//            for (Materia m : lista) {
-//                if (m.getCod() == cod) {
-//                    bw.write(nuevo.toString());
-//                } else {
-//                    bw.write(m.toString());
-//                }
-//                bw.newLine();
-//            }
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+    public void actualizarMateria(int cod, Materia nuevo) {
+        List<Almacenable> lista = listar();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc()))) {
+            for (Almacenable m : lista) {
+                if (m.getCod() == cod) {
+                    bw.write(nuevo.toString());
+                } else {
+                    bw.write(m.toString());
+                }
+                bw.newLine();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
-//    public void eliminarMateria(int cod) {
-//        List<Materia> lista = leerMaterias();
-//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc()))) {
-//            for (Materia m : lista) {
-//                if (m.getCod() != cod) {
-//                    bw.write(m.toString());
-//                    bw.newLine();
-//                }
-//            }
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+    public void eliminarMateria(int cod) {
+        List<Almacenable> lista = listar();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(bda.getNomArc()))) {
+            for (Almacenable m : lista) {
+                if (m.getCod() != cod) {
+                    bw.write(m.toString());
+                    bw.newLine();
+                }
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     private Materia ultimo(){
         Materia ult = null;

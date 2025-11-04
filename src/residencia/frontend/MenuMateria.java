@@ -3,6 +3,7 @@ package residencia.frontend;
 import residencia.backend.Controllers.MateriaDAO;
 import residencia.backend.Models.Materia;
 import java.util.Scanner;
+import residencia.backend.Interfaces.Almacenable;
 
 public class MenuMateria implements MenuConector {
 
@@ -39,8 +40,8 @@ public class MenuMateria implements MenuConector {
     public void listar() {
         System.out.println("LISTA DE MATERIAS...");
         System.out.println("Código:\t\tNombre:");
-        for (Materia m : dao.leerMaterias()) {
-            System.out.println(m.getCod() + "\t\t" + m.getNombre());
+        for (Almacenable m : dao.listar()) {
+            System.out.println(m.getCod() + "\t\t" + ((Materia) m).getNombre());
         }
     }
 
